@@ -1,0 +1,23 @@
+/* Add here all your css styles (customizations) */
+
+/************* 
+	Org Wide CSS
+**************/
+	.no-pad{ padding: 0px !important; }
+
+
+/***********
+	Currency Page
+***********/
+	body{
+		background-color: #F0F8FF;
+		font-family:calibri; 
+		font-weight: lighter;
+	}
+
+	.head-line{background-color: #A4D4FF;min-height: 100px;display: table;}
+		.head-line-content{text-align: center; margin-top: 30px; font-size:300%; color: white; font-weight: bold;}
+
+	.body-line{
+		background-color: #d7ecff;
+	}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    	<meta charset="utf-8">
+    	<title>Currency Convert Widget</title>
+
+
+	    <!-- Basic Imports -->
+	    <script type="text/javascript" src="assets/dependencies/angular.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="assets/dependencies/bootstrap.css">
+	    <link rel="stylesheet" type="text/css" href="assets/dependencies/font-awesome-4.7.0/css/font-awesome.min.css">
+
+	    <!-- Stylesheet Imports -->
+	    <link rel="stylesheet" type="text/css" href="assets/css/currency.css">
+    	<link rel="stylesheet" type="text/css" href="assets/css/currency_responsiveness_settings.css">
+
+    	<!-- Angular Imports -->
+	    <script type="text/javascript" src="assets/js/main.js"></script>
+    	<script type="text/javascript" src="assets/js/currency_converter.js"></script>
+
+	</head>
+	<body ng-app="currency-app">
+		<div ng-controller="currency-ctrl" class="wrapper" ng-init="load_page()" respond-to-zoom="respond_to_zoom()">
+			<div class="col-xs-12 no-pad head-line" style="height: {{obj.head_height + 'px'}};">
+				<div class="col-xs-3"></div>
+				<div class="col-xs-6 no-pad head-line-content">
+					{{obj.title}}
+				</div>
+			</div>
+			<div class="col-xs-12 no-pad body-line" style="height: {{obj.content_height + 'px'}};"></div>
+
+		</div>
+	</body>
+</html>
