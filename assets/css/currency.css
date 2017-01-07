@@ -11,14 +11,14 @@
 	Currency Page
 ***********/
 	body{
-		background-color: #c8c8c8;
+		background-color: #dfdfdf;
 		font-family:calibri; 
 		font-weight: lighter;
 	}
 
 
 	.headline{
-		background-color: #414141;
+		background-color: #595959;
 		min-height: 100px;
 		padding-top: 30px;
 		padding-bottom: 100px;
@@ -34,7 +34,7 @@
 	.content-wrapper{
 		position: relative;
 		top:-70px;
-		background-color: #dfdfdf;
+		background-color: aliceblue;
 		-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
 		-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
 		box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
@@ -51,10 +51,36 @@
 
 				}
 				.content-cell-upper{
-					background-color: #8bc8ff;
+					background-color: #c8ff8b;
 					height: 180px;
 				}
 				.content-cell-lower{
-					background-color: white;
+					background-color: #d8ecff;
 					height: 120px;
 				}
+
+	.widget-wrapper{
+		position: fixed;
+		width: 20%;
+		right: 2%;
+		top: 40%;
+		background-color: #72bcff;
+		-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+	}
+		.currency-converter{
+			display: inline-block;
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-bottom: 10px;
+		}
+			.converter-input{
+				border-color: #8e8e8e;
+				-webkit-box-shadow: inset 0px 0px 5px 0px rgba(102,102,102,0.75);
+				-moz-box-shadow: inset 0px 0px 5px 0px rgba(102,102,102,0.75);
+				box-shadow: inset 0px 0px 5px 0px rgba(102,102,102,0.75);
+			}
+			.converter-input-button{
+				height: 30px;
+			}

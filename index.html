@@ -7,7 +7,9 @@
 
 	    <!-- Basic Imports -->
 	    <script type="text/javascript" src="assets/dependencies/angular.min.js"></script>
-	    <link rel="stylesheet" type="text/css" href="assets/dependencies/bootstrap.css">
+	    <script type="text/javascript" src="assets/dependencies/angular-animate.min.js"></script>
+	    <script type="text/javascript" src="assets/dependencies/angular-touch.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="assets/dependencies/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="assets/dependencies/font-awesome-4.7.0/css/font-awesome.min.css">
 
 	    <!-- Stylesheet Imports -->
@@ -25,7 +27,51 @@
 			<div class="col-xs-2" style="width: {{obj.content.left_holder_width + '%'}}"></div>
 			<content></content>
 			<div class="col-xs-2" style="width: {{obj.content.right_holder_width + '%'}}"></div>
-			<div></div>
+			<div class="widget-wrapper">
+				<div class="currency-converter">
+					<div class="col-xs-12">
+						<h3>Currency Converter</h3>
+					</div>
+					<div class="col-xs-12">
+						Type in amount and select currency:
+					</div>
+					<div class="col-xs-2"></div>
+					<div class="col-xs-6">
+						<input type="text" class="form-control input-sm converter-input" 
+						ng-model="obj.currency_converter.input.value" 
+						placeholder="0.00"
+						ng-change="perform_conversion()"/>
+					</div>
+					<button class="col-xs-4 converter-input-button">{{obj.currency_converter.input.unit}}</button>
+					<div class="col-xs-12">
+						Converted amount:
+					</div>
+					<div class="col-xs-2"></div>
+					<div class="col-xs-6">
+						<input type="text" class="form-control input-sm converter-input" 
+						ng-model="obj.currency_converter.output.value" 
+						placeholder="0.00"
+						ng-change="perform_invert_conversion()" />
+					</div>
+					<div class="col-xs-4 input-group-btn converter-input-button">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{obj.currency_converter.output.unit}}
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12">
+				{{obj.test}}
+			</div>
+
 		</div>
 	</body>
 </html>

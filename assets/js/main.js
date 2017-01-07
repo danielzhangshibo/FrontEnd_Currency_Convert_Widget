@@ -1,4 +1,4 @@
-var App = angular.module('currency-app', []);
+var App = angular.module('currency-app', ['ui.bootstrap']);
 
 App.directive( 'respondToZoom', function($window){
 	return {
@@ -28,3 +28,32 @@ App.directive("headline", function(){
 	};
 });
 
+App.factory("HttpHelper", function($http, $q, $rootScope) {
+	return function() {
+		this.getReturnObject = function(url,  objName) {
+            var obj = null;
+            var deferred = $q.defer();
+
+            var req = {
+                method: "GET",
+                url: url,
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest"
+                }
+            };
+
+            $http(req)
+            	.then(function(data){
+                    obj = objName ? data[objName] : data;
+                    deferred.resolve(obj);
+            	}, function(data, status){
+                    console.log("error");
+                    console.log(data);
+                    console.log(status);
+                    deferred.reject;
+            	});
+
+            return deferred.promise;
+        };
+    };
+});
