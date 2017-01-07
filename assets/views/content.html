@@ -1,0 +1,14 @@
+
+<div class="col-xs-8 no-pad content-wrapper">
+	<div class="col-xs-12 content">
+		<div class="col-xs-4 content-cell-wrapper" ng-repeat="n in [1, 3, 2, 5, 4, 6, 9, 11, 7]">
+			<div class="col-xs-12 no-pad content-cell">
+				<!-- Use NgStyle to introduce some color variety -->
+				<div class="col-xs-12 content-cell-upper" ng-style="n%3==0 && {'background-color':'#a4fffd'} || n%2==0 && {'background-color':'#a4a7ff'}"></div>
+				<div class="col-xs-12 content-cell-lower">
+					{{obj.content.content_cell_lower_text}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

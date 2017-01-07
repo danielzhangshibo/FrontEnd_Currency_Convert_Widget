@@ -4,20 +4,57 @@
 	Org Wide CSS
 **************/
 	.no-pad{ padding: 0px !important; }
+	.no-mar{ margin: 0px !important; }
 
 
 /***********
 	Currency Page
 ***********/
 	body{
-		background-color: #F0F8FF;
+		background-color: #c8c8c8;
 		font-family:calibri; 
 		font-weight: lighter;
 	}
 
-	.head-line{background-color: #A4D4FF;min-height: 100px;display: table;}
-		.head-line-content{text-align: center; margin-top: 30px; font-size:300%; color: white; font-weight: bold;}
 
-	.body-line{
-		background-color: #d7ecff;
+	.headline{
+		background-color: #414141;
+		min-height: 100px;
+		padding-top: 30px;
+		padding-bottom: 100px;
+		display: table;
 	}
+		.headline-content{
+			text-align: center; 
+			font-size:300%; 
+			color: white;
+		}
+
+
+	.content-wrapper{
+		position: relative;
+		top:-70px;
+		background-color: #dfdfdf;
+		-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+	}
+		.content{
+		}
+			.content-cell-wrapper{
+				padding-top: 20px;
+				padding-bottom: 20px;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+				.content-cell{
+
+				}
+				.content-cell-upper{
+					background-color: #8bc8ff;
+					height: 180px;
+				}
+				.content-cell-lower{
+					background-color: white;
+					height: 120px;
+				}

@@ -12,19 +12,19 @@ App.directive( 'respondToZoom', function($window){
 	}
 })
 
-/*
-App.directive("contentCellNormal", function(){
+
+App.directive("content", function(){
 	return {
 		restrict: 'E',
-		templateUrl: 'assets/views/content_cell_normal.html'
+		templateUrl: 'assets/views/content.html'
 	};
 });
 
-App.directive("contentCellExpand", function(){
+
+App.directive("headline", function(){
 	return {
 		restrict: 'E',
-		templateUrl: 'assets/views/content_cell_expand.html'
+		templateUrl: 'assets/views/headline.html'
 	};
 });
 
-*/

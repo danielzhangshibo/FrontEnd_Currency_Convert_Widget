@@ -3,8 +3,12 @@ App.controller('currency-ctrl',
 	function($scope, $interval, $rootScope, $window){
 
 		$scope.obj = {
-			'head_height':0,
-			'content_height':0,
+			'content':{
+				'content_height':0,
+				'left_holder_width':0,
+				'right_holder_width':0,
+				'content_cell_lower_text':'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in libero dictum, tristique ligula convallis, eleifend nibh. Aliquam sed vulputate justo. ',
+			},
 			'title':"Currency Converter Widget"
 		};
 
@@ -15,7 +19,8 @@ App.controller('currency-ctrl',
 		}
 
 		$scope.load_page = function() {
-			$scope.obj.head_height = $window.innerHeight * 0.3;
-			$scope.obj.content_height = $window.innerHeight;
+			$scope.obj.content.content_height = $window.innerHeight;
+			$scope.obj.content.left_holder_width = 16.67;
+			$scope.obj.content.right_holder_width = 16.67;
 		}
 }]);

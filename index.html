@@ -21,14 +21,11 @@
 	</head>
 	<body ng-app="currency-app">
 		<div ng-controller="currency-ctrl" class="wrapper" ng-init="load_page()" respond-to-zoom="respond_to_zoom()">
-			<div class="col-xs-12 no-pad head-line" style="height: {{obj.head_height + 'px'}};">
-				<div class="col-xs-3"></div>
-				<div class="col-xs-6 no-pad head-line-content">
-					{{obj.title}}
-				</div>
-			</div>
-			<div class="col-xs-12 no-pad body-line" style="height: {{obj.content_height + 'px'}};"></div>
-
+			<headline></headline>
+			<div class="col-xs-2" style="width: {{obj.content.left_holder_width + '%'}}"></div>
+			<content></content>
+			<div class="col-xs-2" style="width: {{obj.content.right_holder_width + '%'}}"></div>
+			<div></div>
 		</div>
 	</body>
 </html>
