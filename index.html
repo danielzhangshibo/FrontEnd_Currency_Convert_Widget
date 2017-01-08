@@ -25,9 +25,9 @@
 	</head>
 	<body ng-app="currency-app">
 		<div ng-controller="currency-ctrl" class="wrapper" ng-init="load_page()" respond-to-zoom="respond_to_zoom()">
-			<headline></headline>
+			<headline class="col-xs-12 headline-wrapper"></headline>
 			<div class="col-xs-2" style="width: {{obj.content.left_holder_width + '%'}}"></div>
-			<content class="col-xs-8 no-pad content-wrapper"></content>
+			<content class="col-xs-8 no-pad content-wrapper five-border-radius"></content>
 			<div class="col-xs-2" style="width: {{obj.content.right_holder_width + '%'}}"></div>
 			<widget></widget>
 			<div id="footer" class="col-xs-12">

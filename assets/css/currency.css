@@ -5,6 +5,7 @@
 **************/
 	.no-pad{ padding: 0px !important; }
 	.no-mar{ margin: 0px !important; }
+	.five-border-radius{ border-radius: 5px; }
 
 
 /***********
@@ -16,24 +17,28 @@
 		font-weight: lighter;
 	}
 
-
-	.headline{
-		background-color: #595959;
-		min-height: 100px;
-		padding-top: 30px;
-		padding-bottom: 100px;
-		display: table;
+	.headline-wrapper{
+		padding-top: 2%;
+		padding-bottom: 2%;
+		padding-left: 0px;
+		padding-right: 0px;
 	}
-		.headline-content{
-			text-align: center; 
-			font-size:300%; 
-			color: white;
+		.headline{
+			background-color: #595959;
+			-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+			box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
 		}
+			.headline-content{
+				padding-top: 30px;
+				padding-bottom: 30px;
+				text-align: center; 
+				font-size:300%; 
+				color: white;
+			}
 
 
 	.content-wrapper{
-		position: relative;
-		top:-70px;
 		background-color: aliceblue;
 		-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
 		-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
