@@ -6,16 +6,21 @@ App.controller('currency-ctrl',
 
 		$scope.obj = {
 			'content':{
-				'content_height':0,
-				'left_holder_width':0,
-				'right_holder_width':0,
-				'content_cell_lower_text':'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in libero dictum, tristique ligula convallis, eleifend nibh. Aliquam sed vulputate justo. ',
+				'content_cell_lower_text':'Here are some products for sale',
+				'cells':[
+					{'type':1,'price':'129'},
+					{'type':3,'price':'69'},
+					{'type':1,'price':'99'},
+					{'type':1,'price':'19'},
+					{'type':3,'price':'349'},
+					{'type':3,'price':'219'},
+					{'type':3,'price':'159'},
+					{'type':1,'price':'189'},
+					{'type':1,'price':'59'}
+				]
 			},
 			'currency_converter':{
 				'collapsed':false,
-				'width': 20,
-				'right': 2,
-				'top': 40,
 				'input':{
 					'value':null,
 					'unit':'CAD'
@@ -24,10 +29,19 @@ App.controller('currency-ctrl',
 					'value':null,
 					'unit':'USD'
 				},
-				'rates':{}
+				'rates':{},
+				'disclaimer':{
+					'open': false,
+					'rate': null,
+					'date': null
+				}
 			},
 			'title':"Currency Converter Widget"
 		};
+
+	/***********
+	Basic layout code
+	***********/
 
 		$scope.respond_to_zoom = function(){
 			if(!$scope.$$phase) {
@@ -37,33 +51,81 @@ App.controller('currency-ctrl',
 
 		$scope.load_page = function() {
 			$scope.obj.content.content_height = $window.innerHeight;
-			$scope.expand_widget();
-			$scope.load_exchange_rate();
-		}
-
-		$scope.load_exchange_rate = function(callback) {
-			httpHelper.getReturnObject('http://api.fixer.io/latest?base=' + $scope.obj.currency_converter.input.unit, null).then(function(data) {
-				$scope.obj.currency_converter.rate = data.data;
-				if (callback != null) {
-					callback();
+			// Generate each content cell's widget data
+			for ( eachCell in $scope.obj.content.cells){
+				eachCell.show_widget = false,
+				eachCell.widget_data = {
+					'input':{
+						'value':null,
+						'unit':'CAD'
+					},
+					'output':{
+						'value':null,
+						'unit':'USD'
+					},
+					'rates':{}
 				}
-			});
-		}
-		
-		$scope.prepare_conversion = function(reverse){
-			if (reverse == false) {
-				$scope.load_exchange_rate($scope.perform_conversion);
-			}else{
-				$scope.load_exchange_rate($scope.perform_reverse_conversion);
 			}
 		}
 
-		$scope.perform_conversion = function() {
-			var input = $scope.obj.currency_converter.input.value;
-			var unit = $scope.obj.currency_converter.output.unit;
-			var rates_json = $scope.obj.currency_converter.rate.rates;
+		$scope.trigger_widget_collapse = function() {
+			$scope.obj.currency_converter.collapsed = !$scope.obj.currency_converter.collapsed;
+			if ($scope.obj.currency_converter.collapsed) {
+				$scope.obj.currency_converter.disclaimer.open = false;
+			}
+		}
+
+		$scope.trigger_disclaimer = function(){
+			$scope.obj.currency_converter.disclaimer.open = !$scope.obj.currency_converter.disclaimer.open;
+		}
+
+
+	/***********
+	Currency conversion related code
+	***********/
+		$scope.change_unit = function(widget_data, is_input, new_unit) {
+			if (is_input) {
+				widget_data.input.unit = new_unit;
+			}else{
+				widget_data.output.unit = new_unit;
+			}
+			/* 
+			Here the behavior after unit change is :
+				no matter it is the input's unit changed or output's unit changed,
+				always do the conversion in the right direction (not reverse),
+				this behavior is to follow how google's conversion works.
+				See in detail : https://www.google.ca/search?q=cad+to+usd
+			*/
+			$scope.prepare_conversion(widget_data, false);
+		}
+
+		$scope.prepare_conversion = function(widget_data, reverse){
+			if (!reverse) {
+				$scope.load_exchange_rate(widget_data, $scope.perform_conversion);
+			}else{
+				$scope.load_exchange_rate(widget_data, $scope.perform_reverse_conversion);
+			}
+		}
+
+		$scope.load_exchange_rate = function(widget_data, callback) {
+			httpHelper.getReturnObject('http://api.fixer.io/latest?base=' + widget_data.input.unit, null).then(function(data) {
+				widget_data.rate = data.data;
+				if (callback != null) {
+					callback(widget_data);
+				}
+			});
+		}
+
+		$scope.perform_conversion = function(widget_data) {
+			var input =widget_data.input.value;
+			var unit = widget_data.output.unit;
+			var rates_json = widget_data.rate.rates;
 			if (rates_json != null && rates_json.hasOwnProperty(unit)) {	// Fault tolerance check, in case the JSON model is changed
 				var rate = rates_json[unit];
+				if (widget_data.hasOwnProperty('disclaimer')) {	// Update disclaim info, if it is the side widget
+					widget_data.disclaimer.rate = rate;
+					widget_data.disclaimer.date = widget_data.rate.date;
+				}
 				var result = input * rate;
 				result = Math.round(result*100)/100;
 				if (result < 0) {	// Fault tolerance check
@@ -71,15 +133,14 @@ App.controller('currency-ctrl',
 				}
 			}else{
 				result = -1;
-				$scope.obj.test = $scope.obj.currency_converter.rate;
 			}
-			$scope.obj.currency_converter.output.value = result;
+			widget_data.output.value = result;
 		}
 
-		$scope.perform_reverse_conversion = function() {
-			var input = $scope.obj.currency_converter.output.value;
-			var unit = $scope.obj.currency_converter.output.unit;
-			var rates_json = $scope.obj.currency_converter.rate.rates;
+		$scope.perform_reverse_conversion = function(widget_data) {
+			var input = widget_data.output.value;
+			var unit = widget_data.output.unit;
+			var rates_json = widget_data.rate.rates;
 			if (rates_json != null && rates_json.hasOwnProperty(unit)) {	// Safe check in case 'unit' is invalid or the JSON model is changed
 				var rate = 1 / rates_json[unit];
 				var result = input * rate;
@@ -89,43 +150,11 @@ App.controller('currency-ctrl',
 				}
 			}else{
 				result = -1;
-				$scope.obj.test = $scope.obj.currency_converter.rate;
 			}
-			$scope.obj.currency_converter.input.value = result;
+			widget_data.input.value = result;
 		}
 
-		$scope.change_unit = function(is_input, new_unit) {
-			if (is_input) {
-				$scope.obj.currency_converter.input.unit = new_unit;
-			}else{
-				$scope.obj.currency_converter.output.unit = new_unit;
-			}
-			/* 
-			Here the behavior after unit change is :
-				no matter it is the input's unit changed or output's unit changed,
-				always do the conversion in the right direction (not reverse),
-				this behavior is to follow how google's conversion works.
-				See in detail : https://www.google.ca/search?q=cad+to+usd
-			*/
-			$scope.prepare_conversion(false);
-		}
 
-		$scope.collapse_widget = function() {
-			$scope.obj.currency_converter.width = null;
-			$scope.obj.currency_converter.right = 0;
-			$scope.obj.currency_converter.top = 40;
-			$scope.obj.currency_converter.collapsed = true;
-			$scope.obj.content.left_holder_width = 2* 100/12;		// equals to col-2 in bootstrap
-			$scope.obj.content.right_holder_width = 2* 100/12;		// equals to col-2 in bottstrap
-		}
-
-		$scope.expand_widget = function() {
-			$scope.obj.currency_converter.width = 20;
-			$scope.obj.currency_converter.right = 2;
-			$scope.obj.currency_converter.top = 40;
-			$scope.obj.currency_converter.collapsed = false;
-			$scope.obj.content.left_holder_width = 1* 100/12;		// equals to col-1 in bootstrap
-			$scope.obj.content.right_holder_width = 3* 100/12;		// equals to col-3 in bottstrap
-		}
+		
 
 }]);

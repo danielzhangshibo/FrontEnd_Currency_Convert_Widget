@@ -31,7 +31,20 @@ App.directive("headline", function(){
 App.directive("widget", function(){
     return {
         restrict: 'E',
+        transclude: true,
+        scope: {
+            widgetData: '=',
+            conversionCall: '&',
+            changeUnitCall: '&'
+        },
         templateUrl: 'assets/views/widget.html'
+    };
+});
+
+App.directive("widgetDisclaimer", function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'assets/views/widget-disclaimer.html'
     };
 });
 

@@ -1,76 +1,66 @@
-<div class="widget-wrapper" ng-style="obj.currency_converter.collapsed && {'right':'0%', 'border-radius':'(10px, 0px, 0px, 10px)'} || !obj.currency_converter.collapsed && {'right':'2%', 'width':'20%'}">
-	<div class="col-xs-12 collapsed-widget" ng-show="obj.currency_converter.collapsed">
-		<span class="fa fa-usd fa-3x fa-spin"></span>
-	</div>
-	<div class="currency-converter" ng-hide="obj.currency_converter.collapsed">
-		<span class="fa fa-times fa-lg collapse-button " ng-click="collapse_widget()"></span>
-		<div class="col-xs-12">
-			<h3>Currency Converter</h3>
-		</div>
-		<div class="col-xs-12">
-			Type in amount and select currency:
-		</div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-6">
-			<input type="text" class="form-control input-sm converter-input" 
-			ng-model="obj.currency_converter.input.value" 
-			placeholder="0.00"
-			ng-change="prepare_conversion(false)"/>
-		</div>
-		<div class="col-xs-4 btn-group no-pad" uib-dropdown>
-			<button type="button" class="col-xs-12 btn btn-default converter-input-button no-pad" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
-				{{obj.currency_converter.input.unit}}
-				<span class="caret"></span>
-			</button>
-			<!--
-				I'm using dropdown to switch between units,
-				there are two rules implemented on the items appear in the dropdown:
-				1. Don't show the unit same as the current unit (changing from CAD to CAD doesn't make sense)
-				2. Don't show the unit same as the output unit (show the exchange rate of CAD to CAD also doesn't make sense)
-				Because of the two rules, the dropdown only contains 1 visible item at all time,
-				that makes the purpose of using dropdown kind of futile.
-				But I still decide to use dropdown because if it is a real widget,
-				there will be more currencies included,
-				as a front end developer i should always antipate how the application will develop in the future and adjust my code accordingly so when the upgrade comes, it takes the minimum effort to reach optimum result.
-			-->
-			<ul class="col-xs-12 dropdown-menu converter-input-dropdown" uib-dropdown-menu>
-				<li ng-hide="obj.currency_converter.input.unit=='USD' ||  obj.currency_converter.output.unit=='USD'">
-					<a ng-click="change_unit(true,'USD')">USD</a>
-				</li>
-				<li ng-hide="obj.currency_converter.input.unit=='CAD' ||  obj.currency_converter.output.unit=='CAD'">
-					<a ng-click="change_unit(true,'CAD')">CAD</a>
-				</li>
-				<li ng-hide="obj.currency_converter.input.unit=='EUR' ||  obj.currency_converter.output.unit=='EUR'">
-					<a ng-click="change_unit(true,'EUR')">EUR</a>
-				</li>
-			</ul>
-		</div>
-		<div class="col-xs-12">
-			Converted amount:
-		</div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-6">
-			<input type="text" class="form-control input-sm converter-input" 
-			ng-model="obj.currency_converter.output.value" 
-			placeholder="0.00"
-			ng-change="prepare_conversion(true)" />
-		</div>
-		<div class="col-xs-4 btn-group no-pad" uib-dropdown>
-			<button type="button" class="col-xs-12 btn btn-default converter-input-button no-pad" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
-				{{obj.currency_converter.output.unit}}
-				<span class="caret"></span>
-			</button>
-			<ul class="col-xs-12 dropdown-menu converter-input-dropdown" uib-dropdown-menu>
-				<li ng-hide="obj.currency_converter.input.unit=='USD' ||  obj.currency_converter.output.unit=='USD'">
-					<a ng-click="change_unit(false,'USD')">USD</a>
-				</li>
-				<li ng-hide="obj.currency_converter.input.unit=='CAD' ||  obj.currency_converter.output.unit=='CAD'">
-					<a ng-click="change_unit(false,'CAD')">CAD</a>
-				</li>
-				<li ng-hide="obj.currency_converter.input.unit=='EUR' ||  obj.currency_converter.output.unit=='EUR'">
-					<a ng-click="change_unit(false,'EUR')">EUR</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+
+<div class="col-xs-12 widget-label">
+	Type in amount and select currency:
+</div>
+<div class="col-xs-2"></div>
+<div class="col-xs-6">
+	<input type="text" class="form-control input-sm converter-input" 
+	ng-model="widgetData.input.value" 
+	placeholder="0.00"
+	ng-change="conversionCall({data:widgetData, boolean:false})"/>
+</div>
+<div class="col-xs-4 btn-group no-pad" uib-dropdown>
+	<button type="button" class="col-xs-12 btn btn-default converter-input-button no-pad" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
+		{{widgetData.input.unit}}
+		<span class="caret"></span>
+	</button>
+	<!--
+		I'm using dropdown to switch between units,
+		there are two rules implemented on the items appear in the dropdown:
+		1. Don't show the unit same as the current unit (changing from CAD to CAD doesn't make sense)
+		2. Don't show the unit same as the output unit (show the exchange rate of CAD to CAD also doesn't make sense)
+		Because of the two rules, the dropdown only contains 1 visible item at all time,
+		that makes the purpose of using dropdown kind of futile.
+		But I still decide to use dropdown because if it is a real widget,
+		there will be more currencies included,
+		as a front end developer i should always antipate how the application will develop in the future and adjust my code accordingly so when the upgrade comes, it takes the minimum effort to reach optimum result.
+	-->
+	<ul class="col-xs-12 dropdown-menu converter-input-dropdown" uib-dropdown-menu>
+		<li ng-hide="widgetData.input.unit=='USD' ||  widgetData.output.unit=='USD'">
+			<a ng-click="changeUnitCall({data:widgetData , boolean:true , unit:'USD'})">USD</a>
+		</li>
+		<li ng-hide="widgetData.input.unit=='CAD' ||  widgetData.output.unit=='CAD'">
+			<a ng-click="changeUnitCall({data:widgetData , boolean:true , unit:'CAD'})">CAD</a>
+		</li>
+		<li ng-hide="widgetData.input.unit=='EUR' ||  widgetData.output.unit=='EUR'">
+			<a ng-click="changeUnitCall({data:widgetData , boolean:true , unit:'EUR'})">EUR</a>
+		</li>
+	</ul>
+</div>
+<div class="col-xs-12 widget-label">
+	Converted amount:
+</div>
+<div class="col-xs-2"></div>
+<div class="col-xs-6">
+	<input type="text" class="form-control input-sm converter-input" 
+	ng-model="widgetData.output.value" 
+	placeholder="0.00"
+	ng-change="prepare_conversion(widgetData,true)" />
+</div>
+<div class="col-xs-4 btn-group no-pad" uib-dropdown>
+	<button type="button" class="col-xs-12 btn btn-default converter-input-button no-pad" uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">
+		{{widgetData.output.unit}}
+		<span class="caret"></span>
+	</button>
+	<ul class="col-xs-12 dropdown-menu converter-input-dropdown" uib-dropdown-menu>
+		<li ng-hide="widgetData.input.unit=='USD' ||  widgetData.output.unit=='USD'">
+			<a ng-click="changeUnitCall({data:widgetData , boolean:false , unit:'USD'})">USD</a>
+		</li>
+		<li ng-hide="widgetData.input.unit=='CAD' ||  widgetData.output.unit=='CAD'">
+			<a ng-click="changeUnitCall({data:widgetData , boolean:false , unit:'CAD'})">CAD</a>
+		</li>
+		<li ng-hide="widgetData.input.unit=='EUR' ||  widgetData.output.unit=='EUR'">
+			<a ng-click="changeUnitCall({data:widgetData , boolean:false , unit:'EUR'})">EUR</a>
+		</li>
+	</ul>
 </div>

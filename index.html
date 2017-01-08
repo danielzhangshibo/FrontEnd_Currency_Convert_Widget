@@ -26,10 +26,30 @@
 	<body ng-app="currency-app">
 		<div ng-controller="currency-ctrl" class="wrapper" ng-init="load_page()" respond-to-zoom="respond_to_zoom()">
 			<headline class="col-xs-12 headline-wrapper"></headline>
-			<div class="col-xs-2" style="width: {{obj.content.left_holder_width + '%'}}"></div>
-			<content class="col-xs-8 no-pad content-wrapper five-border-radius"></content>
-			<div class="col-xs-2" style="width: {{obj.content.right_holder_width + '%'}}"></div>
-			<widget></widget>
+
+			<div class="alive" ng-class="obj.currency_converter.collapsed && 'col-xs-2' || !obj.currency_converter.collapsed && 'col-xs-1'"></div>
+
+			<content class="col-xs-8 no-pad content-wrapper five-border-radius material-shadow alive-heavy"></content>
+
+			<div class="alive" ng-class="obj.currency_converter.collapsed && 'col-xs-2' || !obj.currency_converter.collapsed && 'col-xs-3'"></div>
+
+			<div class="widget-wrapper five-border-radius material-shadow alive" ng-class="obj.currency_converter.collapsed && 'collapsed' || !obj.currency_converter.collapsed && 'expanded'">
+				<div class="col-xs-12 collapsed-widget" ng-show="obj.currency_converter.collapsed" ng-click="trigger_widget_collapse()">
+					<span class="fa fa-usd fa-3x"> </span>
+					<br>
+					<span>Currency Converter</span>
+				</div>
+				<span class="fa fa-times fa-lg collapse-button " ng-click="trigger_widget_collapse()"></span>
+				<div class="col-xs-12" ng-hide="obj.currency_converter.collapsed">
+					<h3>Currency Converter</h3>
+				</div>
+				<widget widget-data="obj.currency_converter" 
+						change-unit-call="change_unit(data, boolean, unit)" 
+						conversion-call="prepare_conversion(data, boolean)" 
+						class="currency-converter" 
+						ng-hide="obj.currency_converter.collapsed"></widget>
+				<widget-disclaimer class="col-xs-12 disclaimer" ng-hide="obj.currency_converter.collapsed"></widget-disclaimer>
+			</div>
 			<div id="footer" class="col-xs-12">
 				Powered by AngularJS and Bootstrap<br>
 				Created by Daniel

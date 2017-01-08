@@ -3,92 +3,148 @@
 /************* 
 	Org Wide CSS
 **************/
-	.no-pad{ padding: 0px !important; }
-	.no-mar{ margin: 0px !important; }
-	.five-border-radius{ border-radius: 5px; }
+	.no-pad{ 
+		padding: 0px !important; 
+	}
+	.no-mar{ 
+		margin: 0px !important; 
+	}
+	.five-border-radius{ 
+		border-radius: 5px; 
+	}
+	.material-shadow{ 
+		-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); 
+	}
+	.material-shadow:hover{ 
+		-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75); 
+	}
+	.material-shadow-static{ 
+		-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); 
+	}
+	.alive-heavy{
+		transition-duration: 0.8s;
+		-webkit-transition-duration: 0.8s;
+		-moz-transition-duration: 0.8s;
+	}
+	.alive{
+		transition-duration: 0.5s;
+		-webkit-transition-duration: 0.5s;
+		-moz-transition-duration: 0.5s;
+	}
+	.alive-light{
+		transition-duration: 0.2s;
+		-webkit-transition-duration: 0.2s;
+		-moz-transition-duration: 0.2s;
+	}
 
 
 /***********
 	Currency Page
 ***********/
 	body{
-		background-color: #dfdfdf;
+		background-color: #d7ecff;
 		font-family:calibri; 
 		font-weight: lighter;
 	}
 
 	.headline-wrapper{
-		padding-top: 2%;
-		padding-bottom: 2%;
-		padding-left: 0px;
-		padding-right: 0px;
+		padding: 2% 0px 2% 0px;
 	}
 		.headline{
-			background-color: #595959;
-			-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
-			-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
-			box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+			background-color: #F0F8FF;
 		}
 			.headline-content{
 				padding-top: 30px;
 				padding-bottom: 30px;
 				text-align: center; 
 				font-size:300%; 
-				color: white;
 			}
 
 
 	.content-wrapper{
-		background-color: aliceblue;
-		-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
-		-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
-		box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+		background-color: #F0F8FF;
 	}
 		.content{
 			padding: 15px;
 		}
-			.content-cell-wrapper{
-				padding-top: 15px;
-				padding-bottom: 15px;
-				padding-left: 15px;
-				padding-right: 15px;
+			.content-label{
+				font-size:200%;
 			}
+			.content-cell-wrapper{
+				padding: 15px;
+			}
+				.content-cell{
+					height: 300px;
+					overflow: hidden;
+				}
 				.content-cell-upper{
-					background-color: #c8ff8b;
-					height: 180px;
+					background-color: #d3ffa2;
+					height: 300px;
+				}
+				.content-cell-upper.second{
+					background-color: #f6c272
+				}
+				.content-cell-upper.third{
+					background-color: #b6b8ff
 				}
 				.content-cell-lower{
-					background-color: #bfe0ff;
-					height: 120px;
+					background-color: rgba(255,255,255,0.5);
+					display: relative;
+					transition-property: top;
+					transition-duration: 0.5s;
+					top: -80px;
+					height: 160px;
 				}
+				.content-cell-lower.expand{
+					top: -160px;
+				}
+					.content-currency-convert-wrapper{
+						padding: 5px 0px 0px 0px;
+						text-align: center;
+					}
+
 
 	.widget-wrapper{
 		position: fixed;
 		top: 40%;
-		background-color: aliceblue;
-		-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
-		-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
-		box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+		background-color: #F0F8FF;
+	}
+	.widget-wrapper.collapsed{
+		width: 5%;
+		right: 0%;
+		border-radius: 10px 0px 0px 10px;
+	}
+	.widget-wrapper.expanded{
+		width: 20%;
+		right: 2%;
 	}
 		.collapse-button{
 			position: absolute;
 			color: #d43f3a;
 			cursor: pointer;
-			/*height: 96%;
-			top: 2%;
-			right: 2%;*/
-			top: 5%;
-			right: 5%;
+			top: 10px;
+			right: 10px;
 			z-index: 5;
 		}
 		.collapsed-widget{
-			padding: 20px;
+			padding: 20px 10px 20px 10px;
+			text-align: center;
+			cursor: pointer;
 		}
 		.currency-converter{
 			display: inline-block;
 			padding-left: 10px;
 			padding-right: 10px;
 			padding-bottom: 10px;
+		}
+		.widget-label{
+			text-align: left;
 		}
 			.converter-input{
 				border-color: #8e8e8e;
@@ -100,6 +156,18 @@
 					min-width: 60px;
 					text-align: center;
 				}
+		.disclaimer{
+			text-align: right;
+		}
+			.disclaimer-button{
+				color: #337ab7;
+				text-decoration: underline;
+				cursor: pointer;
+			}
+			.disclaimer-content{
+				text-align: left;
+				padding-bottom: 20px;
+			}
 
 
 	#footer{
