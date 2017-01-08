@@ -40,35 +40,45 @@
 		box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
 	}
 		.content{
+			padding: 15px;
 		}
 			.content-cell-wrapper{
-				padding-top: 20px;
-				padding-bottom: 20px;
-				padding-left: 10px;
-				padding-right: 10px;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				padding-left: 15px;
+				padding-right: 15px;
 			}
-				.content-cell{
-
-				}
 				.content-cell-upper{
 					background-color: #c8ff8b;
 					height: 180px;
 				}
 				.content-cell-lower{
-					background-color: #d8ecff;
+					background-color: #bfe0ff;
 					height: 120px;
 				}
 
 	.widget-wrapper{
 		position: fixed;
-		width: 20%;
-		right: 2%;
 		top: 40%;
-		background-color: #72bcff;
+		background-color: aliceblue;
 		-webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
 		-moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
 		box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
 	}
+		.collapse-button{
+			position: absolute;
+			color: #d43f3a;
+			cursor: pointer;
+			/*height: 96%;
+			top: 2%;
+			right: 2%;*/
+			top: 5%;
+			right: 5%;
+			z-index: 5;
+		}
+		.collapsed-widget{
+			padding: 20px;
+		}
 		.currency-converter{
 			display: inline-block;
 			padding-left: 10px;
@@ -77,10 +87,18 @@
 		}
 			.converter-input{
 				border-color: #8e8e8e;
-				-webkit-box-shadow: inset 0px 0px 5px 0px rgba(102,102,102,0.75);
-				-moz-box-shadow: inset 0px 0px 5px 0px rgba(102,102,102,0.75);
-				box-shadow: inset 0px 0px 5px 0px rgba(102,102,102,0.75);
 			}
-			.converter-input-button{
-				height: 30px;
-			}
+				.converter-input-button{
+					height: 30px;
+				}
+				.converter-input-dropdown{
+					min-width: 60px;
+					text-align: center;
+				}
+
+
+	#footer{
+		padding-top: 50px;
+		padding-bottom: 50px;
+		text-align: center;
+	}

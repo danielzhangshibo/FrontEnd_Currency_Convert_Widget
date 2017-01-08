@@ -1,6 +1,6 @@
 var App = angular.module('currency-app', ['ui.bootstrap']);
 
-App.directive( 'respondToZoom', function($window){
+App.directive( 'respondToZoomd', function($window){
 	return {
 		link: function( scope, elem, attrs){
 			var w = angular.element($window);
@@ -26,6 +26,13 @@ App.directive("headline", function(){
 		restrict: 'E',
 		templateUrl: 'assets/views/headline.html'
 	};
+});
+
+App.directive("widget", function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'assets/views/widget.html'
+    };
 });
 
 App.factory("HttpHelper", function($http, $q, $rootScope) {
