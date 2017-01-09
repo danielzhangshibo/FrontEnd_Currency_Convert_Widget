@@ -1,7 +1,16 @@
 /**********
 	Responsive Settings
 **********/
-	@media screen and (max-width: 768px) {
+
+	/*Large computer screen start at 1440 but the default display is already optimized for 1366*/
+	@media screen and (max-width: 1365px) {
+		.content-cell-wrapper{
+			width: 50%;
+		}
+	}
+
+	/* Ipad and other tablet devices*/
+	@media screen and (max-width: 767px) {
 		.gone-in-mobile{
 			display: none;
 		}
@@ -29,7 +38,6 @@
 			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); 
 		}
 			.content-cell-wrapper{
-				width: 50%;
 				padding: 2%;
 			}
 				.content-label{
@@ -55,7 +63,7 @@
 
 
 
-
+	/* smartphone L*/
 	@media screen and (max-width: 480px) {
 		#content-wrapper{
 			padding-top: 15%!important;
@@ -75,7 +83,7 @@
 	}
 
 
-
+	/* smartphone S*/
 	@media screen and (max-width: 320px) {
 		#content-wrapper{
 			padding-top: 30%!important;
@@ -90,15 +98,3 @@
 		}
 	}
 
-
-	@media screen and (min-width: 1024px) {
-
-	}
-
-
-	@media screen and (min-width: 1440px) {
-	}
-
-
-	@media screen and (min-width: 2560px) {
-	}
