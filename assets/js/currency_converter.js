@@ -9,13 +9,13 @@ App.controller('currency-ctrl',
 				'content_cell_lower_text':'Here are some products for sale',
 				'cells':[
 					{'type':1,'price':'129'},
-					{'type':3,'price':'69'},
-					{'type':3,'price':'99'},
+					{'type':2,'price':'69'},
+					{'type':2,'price':'99'},
 					{'type':1,'price':'19'},
-					{'type':3,'price':'349'},
+					{'type':2,'price':'349'},
 					{'type':1,'price':'219'},
 					{'type':1,'price':'159'},
-					{'type':3,'price':'189'}
+					{'type':2,'price':'189'}
 				]
 			},
 			'currency_converter':{

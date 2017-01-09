@@ -6,8 +6,8 @@
 		</div>
 		<div class="col-xs-4 content-cell-wrapper" ng-repeat="eachCell in obj.content.cells">
 			<div class="col-xs-12 no-pad content-cell material-shadow alive-light">
-				<!-- Use ng-class to introduce some variety -->
-				<div class="col-xs-12 content-cell-upper" ng-class="eachCell.type==2 && 'second' || eachCell.type==3 && 'third'"></div>
+				<!-- Use ng-class to introduce some color variety -->
+				<div class="col-xs-12 content-cell-upper" ng-class="eachCell.type==2 && 'second'"></div>
 				<div class="col-xs-12 content-cell-lower material-shadow-static" ng-class="eachCell.show_widget && 'expand'">
 					<div class="col-xs-12 no-pad">
 						This item is listed at price ${{eachCell.price}}
@@ -17,6 +17,10 @@
 							<span ng-hide="eachCell.show_widget">Open Currency Convert</span>
 							<span ng-show="eachCell.show_widget">Close Currency Convert</span>
 						</div>
+						<!--
+						Having individual widgets is not very convienient,
+						I choose to do so because it shows how a custom directive can be reused.
+						-->
 						<widget widget-data="eachCell.widget_data" 
 								change-unit-call="change_unit(data, boolean, unit)" 
 								conversion-call="prepare_conversion(data, boolean)" 
