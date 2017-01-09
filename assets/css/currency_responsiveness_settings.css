@@ -1,33 +1,99 @@
 /**********
 	Responsive Settings
 **********/
-	/* 	Basically split the resolutions into five categories based on its width,
-			1. below 1079
-			2. 1080 to 1439
-			3. 1440 to 1919
-			4. 1920 to 2560
-			5. 2560 to 5k
-	   	Therefore I build five thresholds for detecting the resolution
-	*/
-	@media{
+	@media screen and (max-width: 768px) {
+		.gone-in-mobile{
+			display: none;
+		}
+		#headline-wrapper{
+		}
+			#headline{
+				background-color: #d7ecff;
+				width: 100%;
+				top: 0px;
+				left: 0px;
+				position: fixed;
+				border-radius: 0px;
+				z-index: 4;
+			}
+				#headline-content{
+					font-size: 200%;
+				}
+		#content-wrapper{
+			padding-top: 10%!important;
+			width: 100%;
+			border-radius: 0px;
+			-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); 
+		}
+			.content-cell-wrapper{
+				width: 50%;
+				padding: 2%;
+			}
+				.content-label{
+					font-size:150%;
+				}
+					.content-currency-convert-button{
+						font-size: 110%;
+					}
+		#widget-wrapper.expanded{
+			width: 35%;
+			right: 0%;
+			border-radius: 10px 0px 0px 10px;
+		}
+		#footer{
+			position: relative;
+			z-index: 3;
+			background-color: #d7ecff;
+			-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); 
+		}
+	}
+
+
+
+
+	@media screen and (max-width: 480px) {
+			.content-cell-wrapper{
+				width: 100%;
+			}
+
+		#widget-wrapper.collapsed{
+			width: 20%;
+		}
+
+		#widget-wrapper.expanded{
+			width: 60%;
+		}
+	}
+
+
+
+	@media screen and (max-width: 320px) {
+		#content-wrapper{
+			padding-top: 30%!important;
+		}
+
+		#widget-wrapper.collapsed{
+			width: 25%;
+		}
+
+		#widget-wrapper.expanded{
+			width: 75%;
+		}
+	}
+
+
+	@media screen and (min-width: 1024px) {
 
 	}
 
 
-	@media (min-width: 1080px) {
-
+	@media screen and (min-width: 1440px) {
 	}
 
 
-	@media (min-width: 1440px) {
-
-	}
-
-
-	@media (min-width: 1920px) {
-		
-	}
-
-
-	@media (min-width: 2560px) {
+	@media screen and (min-width: 2560px) {
 	}

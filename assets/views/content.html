@@ -1,6 +1,6 @@
 
 
-	<div class="col-xs-12 content">
+	<div id="content" class="col-xs-12">
 		<div class="col-xs-12 content-label">
 			{{obj.content.content_cell_lower_text}}
 		</div>
@@ -9,18 +9,18 @@
 				<!-- Use ng-class to introduce some variety -->
 				<div class="col-xs-12 content-cell-upper" ng-class="eachCell.type==2 && 'second' || eachCell.type==3 && 'third'"></div>
 				<div class="col-xs-12 content-cell-lower material-shadow-static" ng-class="eachCell.show_widget && 'expand'">
-					<div class="col-xs-12">
+					<div class="col-xs-12 no-pad">
 						This item is listed at price ${{eachCell.price}}
 					</div>
-					<div class="col-xs-12 content-currency-convert-wrapper">
-						<div class="btn btn-sm btn-default" ng-click="eachCell.show_widget = !eachCell.show_widget">
+					<div class="col-xs-12 no-pad content-currency-convert-wrapper">
+						<div class="btn btn-sm btn-default content-currency-convert-button" ng-click="eachCell.show_widget = !eachCell.show_widget">
 							<span ng-hide="eachCell.show_widget">Open Currency Convert</span>
 							<span ng-show="eachCell.show_widget">Close Currency Convert</span>
 						</div>
 						<widget widget-data="eachCell.widget_data" 
 								change-unit-call="change_unit(data, boolean, unit)" 
 								conversion-call="prepare_conversion(data, boolean)" 
-								class="currency-converter" 
+								class="currency-converter no-pad" 
 								ng-show="eachCell.show_widget"></widget>
 					</div>
 				</div>	

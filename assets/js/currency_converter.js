@@ -10,17 +10,16 @@ App.controller('currency-ctrl',
 				'cells':[
 					{'type':1,'price':'129'},
 					{'type':3,'price':'69'},
-					{'type':1,'price':'99'},
+					{'type':3,'price':'99'},
 					{'type':1,'price':'19'},
 					{'type':3,'price':'349'},
-					{'type':3,'price':'219'},
-					{'type':3,'price':'159'},
-					{'type':1,'price':'189'},
-					{'type':1,'price':'59'}
+					{'type':1,'price':'219'},
+					{'type':1,'price':'159'},
+					{'type':3,'price':'189'}
 				]
 			},
 			'currency_converter':{
-				'collapsed':false,
+				'collapsed':true,
 				'input':{
 					'value':null,
 					'unit':'CAD'
@@ -52,9 +51,9 @@ App.controller('currency-ctrl',
 		$scope.load_page = function() {
 			$scope.obj.content.content_height = $window.innerHeight;
 			// Generate each content cell's widget data
-			for ( eachCell in $scope.obj.content.cells){
-				eachCell.show_widget = false,
-				eachCell.widget_data = {
+			for (var i = $scope.obj.content.cells.length - 1; i >= 0; i--) {
+				$scope.obj.content.cells[i].show_widget = false;
+				$scope.obj.content.cells[i].widget_data = {
 					'input':{
 						'value':null,
 						'unit':'CAD'
@@ -64,7 +63,7 @@ App.controller('currency-ctrl',
 						'unit':'USD'
 					},
 					'rates':{}
-				}
+				};
 			}
 		}
 
@@ -108,7 +107,7 @@ App.controller('currency-ctrl',
 		}
 
 		$scope.load_exchange_rate = function(widget_data, callback) {
-			httpHelper.getReturnObject('http://api.fixer.io/latest?base=' + widget_data.input.unit, null).then(function(data) {
+			httpHelper.getReturnObject('https://api.fixer.io/latest?base=' + widget_data.input.unit, null).then(function(data) {
 				widget_data.rate = data.data;
 				if (callback != null) {
 					callback(widget_data);

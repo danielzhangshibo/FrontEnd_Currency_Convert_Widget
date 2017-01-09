@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   	<head>
-    	<meta charset="utf-8">
+    	<meta charset="utf-8" name="viewport" content="width=device-width, target-densitydpi=high-dpi" >
     	<title>Currency Convert Widget</title>
 
 
@@ -25,21 +25,21 @@
 	</head>
 	<body ng-app="currency-app">
 		<div ng-controller="currency-ctrl" class="wrapper" ng-init="load_page()" respond-to-zoom="respond_to_zoom()">
-			<headline class="col-xs-12 headline-wrapper"></headline>
+			<headline id="headline-wrapper" class="col-xs-12"></headline>
 
-			<div class="alive" ng-class="obj.currency_converter.collapsed && 'col-xs-2' || !obj.currency_converter.collapsed && 'col-xs-1'"></div>
+			<div class="alive gone-in-mobile" ng-class="obj.currency_converter.collapsed && 'col-xs-2' || !obj.currency_converter.collapsed && 'col-xs-1'"></div>
 
-			<content class="col-xs-8 no-pad content-wrapper five-border-radius material-shadow alive-heavy"></content>
+			<content id="content-wrapper" class="col-xs-8 no-pad five-border-radius material-shadow alive-heavy"></content>
 
-			<div class="alive" ng-class="obj.currency_converter.collapsed && 'col-xs-2' || !obj.currency_converter.collapsed && 'col-xs-3'"></div>
+			<div class="alive gone-in-mobile" ng-class="obj.currency_converter.collapsed && 'col-xs-2' || !obj.currency_converter.collapsed && 'col-xs-3'"></div>
 
-			<div class="widget-wrapper five-border-radius material-shadow alive" ng-class="obj.currency_converter.collapsed && 'collapsed' || !obj.currency_converter.collapsed && 'expanded'">
-				<div class="col-xs-12 collapsed-widget" ng-show="obj.currency_converter.collapsed" ng-click="trigger_widget_collapse()">
+			<div id="widget-wrapper" class="five-border-radius material-shadow alive" ng-class="obj.currency_converter.collapsed && 'collapsed' || !obj.currency_converter.collapsed && 'expanded'">
+				<div id="collapsed-widget" class="col-xs-12" ng-show="obj.currency_converter.collapsed" ng-click="trigger_widget_collapse()">
 					<span class="fa fa-usd fa-3x"> </span>
 					<br>
 					<span>Currency Converter</span>
 				</div>
-				<span class="fa fa-times fa-lg collapse-button " ng-click="trigger_widget_collapse()"></span>
+				<span id="collapse-button" class="fa fa-times fa-lg" ng-hide="obj.currency_converter.collapsed" ng-click="trigger_widget_collapse()"></span>
 				<div class="col-xs-12" ng-hide="obj.currency_converter.collapsed">
 					<h3>Currency Converter</h3>
 				</div>
@@ -48,7 +48,7 @@
 						conversion-call="prepare_conversion(data, boolean)" 
 						class="currency-converter" 
 						ng-hide="obj.currency_converter.collapsed"></widget>
-				<widget-disclaimer class="col-xs-12 disclaimer" ng-hide="obj.currency_converter.collapsed"></widget-disclaimer>
+				<widget-disclaimer id="disclaimer" class="col-xs-12" ng-hide="obj.currency_converter.collapsed"></widget-disclaimer>
 			</div>
 			<div id="footer" class="col-xs-12">
 				Powered by AngularJS and Bootstrap<br>

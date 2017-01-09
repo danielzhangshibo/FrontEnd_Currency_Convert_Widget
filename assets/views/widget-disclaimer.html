@@ -1,5 +1,5 @@
-<span class="disclaimer-button" ng-click="trigger_disclaimer()">Disclaimer</span>
-<div class="col-xs-12 disclaimer-content" ng-show="obj.currency_converter.disclaimer.open">
+<span id="disclaimer-button" ng-click="trigger_disclaimer()">Disclaimer</span>
+<div id="disclaimer-content" class="col-xs-12" ng-show="obj.currency_converter.disclaimer.open">
 	<div ng-show="obj.currency_converter.disclaimer.rate != null">
 		Exchange rate is : {{obj.currency_converter.disclaimer.rate}}
 		<br>

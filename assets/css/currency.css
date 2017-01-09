@@ -45,7 +45,7 @@
 
 
 /***********
-	Currency Page
+	Main Page
 ***********/
 	body{
 		background-color: #d7ecff;
@@ -53,31 +53,30 @@
 		font-weight: lighter;
 	}
 
-	.headline-wrapper{
+	#headline-wrapper{
 		padding: 2% 0px 2% 0px;
 	}
-		.headline{
+		#headline{
 			background-color: #F0F8FF;
 		}
-			.headline-content{
-				padding-top: 30px;
-				padding-bottom: 30px;
+			#headline-content{
+				padding: 2% 0px 2% 0px;
 				text-align: center; 
 				font-size:300%; 
 			}
 
 
-	.content-wrapper{
+	#content-wrapper{
 		background-color: #F0F8FF;
 	}
-		.content{
-			padding: 15px;
+		#content{
+			padding: 1%;
 		}
 			.content-label{
 				font-size:200%;
 			}
 			.content-cell-wrapper{
-				padding: 15px;
+				padding: 1%;
 			}
 				.content-cell{
 					height: 300px;
@@ -99,10 +98,10 @@
 					transition-property: top;
 					transition-duration: 0.5s;
 					top: -80px;
-					height: 160px;
+					height: 200px;
 				}
 				.content-cell-lower.expand{
-					top: -160px;
+					top: -200px;
 				}
 					.content-currency-convert-wrapper{
 						padding: 5px 0px 0px 0px;
@@ -110,21 +109,21 @@
 					}
 
 
-	.widget-wrapper{
+	#widget-wrapper{
 		position: fixed;
-		top: 40%;
+		top: 35%;
 		background-color: #F0F8FF;
 	}
-	.widget-wrapper.collapsed{
-		width: 5%;
+	#widget-wrapper.collapsed{
+		width: 10%;
 		right: 0%;
 		border-radius: 10px 0px 0px 10px;
 	}
-	.widget-wrapper.expanded{
+	#widget-wrapper.expanded{
 		width: 20%;
 		right: 2%;
 	}
-		.collapse-button{
+		#collapse-button{
 			position: absolute;
 			color: #d43f3a;
 			cursor: pointer;
@@ -132,7 +131,7 @@
 			right: 10px;
 			z-index: 5;
 		}
-		.collapsed-widget{
+		#collapsed-widget{
 			padding: 20px 10px 20px 10px;
 			text-align: center;
 			cursor: pointer;
@@ -156,22 +155,22 @@
 					min-width: 60px;
 					text-align: center;
 				}
-		.disclaimer{
+		#disclaimer{
 			text-align: right;
 		}
-			.disclaimer-button{
+			#disclaimer-button{
 				color: #337ab7;
 				text-decoration: underline;
 				cursor: pointer;
 			}
-			.disclaimer-content{
+			#disclaimer-content{
 				text-align: left;
 				padding-bottom: 20px;
 			}
 
 
 	#footer{
-		padding-top: 50px;
-		padding-bottom: 50px;
+		padding-top: 5%;
+		padding-bottom: 5%;
 		text-align: center;
 	}
