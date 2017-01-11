@@ -33,11 +33,11 @@
 
 			<div class="alive gone-in-mobile" ng-class="obj.currency_converter.collapsed && 'col-xs-2' || !obj.currency_converter.collapsed && 'col-xs-3'"></div>
 
-			<div class="widget-wrapper five-border-radius material-shadow alive" ng-class="obj.currency_converter.collapsed && 'collapsed' || !obj.currency_converter.collapsed && 'expanded'">
+			<div class="widget-wrapper five-border-radius material-shadow alive" ng-class="obj.currency_converter.collapsed && 'collapsed' || obj.currency_converter.disclaimer.open && 'further-expanded-in-mobile' || !obj.currency_converter.collapsed && 'expanded'">
 				<div class="collapsed-widget col-xs-12" ng-show="obj.currency_converter.collapsed" ng-click="trigger_widget_collapse()">
-					<span class="fa fa-usd fa-3x"> </span>
-					<br>
-					<span>Currency Converter</span>
+					<span class="gone-in-mobile fa fa-usd fa-3x"> </span>
+					<br class="gone-in-mobile">
+					<span>Open Currency Converter</span>
 				</div>
 				<span class="collapse-button fa fa-times fa-lg" ng-hide="obj.currency_converter.collapsed" ng-click="trigger_widget_collapse()"></span>
 				<div class="col-xs-12" ng-hide="obj.currency_converter.collapsed">

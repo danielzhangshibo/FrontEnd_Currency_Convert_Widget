@@ -1,12 +1,12 @@
-<span id="disclaimer-button" ng-click="trigger_disclaimer()">Disclaimer</span>
-<div id="disclaimer-content" class="col-xs-12" ng-show="obj.currency_converter.disclaimer.open">
+<span class="disclaimer-button" ng-click="trigger_disclaimer()">Disclaimer</span>
+<div class="disclaimer-content col-xs-12" ng-show="obj.currency_converter.disclaimer.open">
 	<div ng-show="obj.currency_converter.disclaimer.rate != null">
 		Exchange rate is : {{obj.currency_converter.disclaimer.rate}}
-		<br>
+		<br class="gone-in-mobile">
 		This is captured on : {{obj.currency_converter.disclaimer.date}}
 		<br>
 	</div>
 	For more information, please visit 
-	<br>
+	<br class="gone-in-mobile">
 	<a url="http://fixer.io">http://fixer.io</a>
 </div>

@@ -17,6 +17,7 @@
 			.headline{
 				background-color: #d7ecff;
 				width: 100%;
+				height: 75px;
 				top: 0px;
 				left: 0px;
 				position: fixed;
@@ -35,6 +36,9 @@
 			-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); 
 		}
+			.content.pushed-down-in-mobile{
+				padding-top: 190px;
+			}
 			.content-cell-wrapper{
 				padding: 2%;
 			}
@@ -44,10 +48,30 @@
 					.content-currency-convert-button{
 						font-size: 110%;
 					}
+		.widget-wrapper{
+			background-color: #58b0ff;
+			color: white;
+			top: 65px;
+		}
+		.widget-wrapper.collapsed{
+			right: 35%;
+			width: 30%;
+			height: 55px;
+			border-radius: 10px;
+		}
+			.collapsed-widget{
+				font-size: 125%;
+				font-weight: 500;
+				padding: 20px 10px 5px 10px;
+			}
+			.collapse-button{
+				top: 15px;
+			}
 		.widget-wrapper.expanded{
-			width: 35%;
 			right: 0%;
-			border-radius: 10px 0px 0px 10px;
+			width: 100%;
+			height: 210px;
+			border-radius: 0px;
 		}
 		.footer{
 			position: relative;
@@ -67,15 +91,14 @@
 			padding-top: 15%!important;
 			padding-bottom: 10%!important;
 		}
+			.content{
+				padding-top: 40px;
+			}
 			.content-cell-wrapper{
 				width: 100%;
 			}
-
 		.widget-wrapper.collapsed{
-			width: 20%;
-		}
-
-		.widget-wrapper.expanded{
+			right: 20%;
 			width: 60%;
 		}
 	}
@@ -83,16 +106,16 @@
 
 	/* smartphone S*/
 	@media screen and (max-width: 320px) {
+			.headline-content{
+				padding-top: 15px;
+				font-size: 180%;
+			}
 		.content-wrapper{
 			padding-top: 30%!important;
 		}
-
 		.widget-wrapper.collapsed{
-			width: 25%;
-		}
-
-		.widget-wrapper.expanded{
-			width: 75%;
+			right: 15%;
+			width: 70%;
 		}
 	}
 
