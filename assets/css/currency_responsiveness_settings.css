@@ -14,9 +14,7 @@
 		.gone-in-mobile{
 			display: none;
 		}
-		#headline-wrapper{
-		}
-			#headline{
+			.headline{
 				background-color: #d7ecff;
 				width: 100%;
 				top: 0px;
@@ -25,10 +23,10 @@
 				border-radius: 0px;
 				z-index: 4;
 			}
-				#headline-content{
+				.headline-content{
 					font-size: 200%;
 				}
-		#content-wrapper{
+		.content-wrapper{
 			padding-top: 10%!important;
 			padding-bottom: 5%!important;
 			width: 100%;
@@ -46,12 +44,12 @@
 					.content-currency-convert-button{
 						font-size: 110%;
 					}
-		#widget-wrapper.expanded{
+		.widget-wrapper.expanded{
 			width: 35%;
 			right: 0%;
 			border-radius: 10px 0px 0px 10px;
 		}
-		#footer{
+		.footer{
 			position: relative;
 			z-index: 3;
 			background-color: #d7ecff;
@@ -65,7 +63,7 @@
 
 	/* smartphone L*/
 	@media screen and (max-width: 480px) {
-		#content-wrapper{
+		.content-wrapper{
 			padding-top: 15%!important;
 			padding-bottom: 10%!important;
 		}
@@ -73,11 +71,11 @@
 				width: 100%;
 			}
 
-		#widget-wrapper.collapsed{
+		.widget-wrapper.collapsed{
 			width: 20%;
 		}
 
-		#widget-wrapper.expanded{
+		.widget-wrapper.expanded{
 			width: 60%;
 		}
 	}
@@ -85,15 +83,15 @@
 
 	/* smartphone S*/
 	@media screen and (max-width: 320px) {
-		#content-wrapper{
+		.content-wrapper{
 			padding-top: 30%!important;
 		}
 
-		#widget-wrapper.collapsed{
+		.widget-wrapper.collapsed{
 			width: 25%;
 		}
 
-		#widget-wrapper.expanded{
+		.widget-wrapper.expanded{
 			width: 75%;
 		}
 	}

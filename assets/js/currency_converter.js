@@ -42,14 +42,7 @@ App.controller('currency-ctrl',
 	Basic layout code
 	***********/
 
-		$scope.respond_to_zoom = function(){
-			if(!$scope.$$phase) {
-				$scope.$apply();
-			}
-		}
-
 		$scope.load_page = function() {
-			$scope.obj.content.content_height = $window.innerHeight;
 			// Generate each content cell's widget data
 			for (var i = $scope.obj.content.cells.length - 1; i >= 0; i--) {
 				$scope.obj.content.cells[i].show_widget = false;

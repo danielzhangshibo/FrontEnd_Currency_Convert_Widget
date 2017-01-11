@@ -1,13 +1,11 @@
-/* Add here all your css styles (customizations) */
-
 /************* 
 	Org Wide CSS
 **************/
 	.no-pad{ 
-		padding: 0px !important; 
+		padding: 0px; 
 	}
 	.no-mar{ 
-		margin: 0px !important; 
+		margin: 0px; 
 	}
 	.five-border-radius{ 
 		border-radius: 5px; 
@@ -53,23 +51,23 @@
 		font-weight: lighter;
 	}
 
-	#headline-wrapper{
+	.headline-wrapper{
 		padding: 2% 0px 2% 0px;
 	}
-		#headline{
+		.headline{
 			background-color: #F0F8FF;
 		}
-			#headline-content{
+			.headline-content{
 				padding: 2% 0px 2% 0px;
 				text-align: center; 
 				font-size:300%; 
 			}
 
 
-	#content-wrapper{
+	.content-wrapper{
 		background-color: #F0F8FF;
 	}
-		#content{
+		.content{
 			padding: 1%;
 		}
 			.content-label{
@@ -106,21 +104,21 @@
 					}
 
 
-	#widget-wrapper{
+	.widget-wrapper{
 		position: fixed;
 		top: 35%;
 		background-color: #F0F8FF;
 	}
-	#widget-wrapper.collapsed{
+	.widget-wrapper.collapsed{
 		width: 10%;
 		right: 0%;
 		border-radius: 10px 0px 0px 10px;
 	}
-	#widget-wrapper.expanded{
+	.widget-wrapper.expanded{
 		width: 20%;
 		right: 2%;
 	}
-		#collapse-button{
+		.collapse-button{
 			position: absolute;
 			color: #d43f3a;
 			cursor: pointer;
@@ -128,7 +126,7 @@
 			right: 10px;
 			z-index: 5;
 		}
-		#collapsed-widget{
+		.collapsed-widget{
 			padding: 20px 10px 20px 10px;
 			text-align: center;
 			cursor: pointer;
@@ -152,21 +150,21 @@
 					min-width: 60px;
 					text-align: center;
 				}
-		#disclaimer{
+		.disclaimer{
 			text-align: right;
 		}
-			#disclaimer-button{
+			.disclaimer-button{
 				color: #337ab7;
 				text-decoration: underline;
 				cursor: pointer;
 			}
-			#disclaimer-content{
+			.disclaimer-content{
 				text-align: left;
 				padding-bottom: 20px;
 			}
 
 
-	#footer{
+	.footer{
 		padding-top: 5%;
 		padding-bottom: 5%;
 		text-align: center;
