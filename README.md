@@ -9,6 +9,10 @@ The site generally follows Material design pattern, is fully responsive and opti
 Lastly, a bit explaination for placing the widget as a side bar item:
 The main reason is I expect more needs for widgets on a online store than a just a currency conversion widget, there will be other functionalities necessary to assist the user while he/she browse through products. All those functionlities will reside in the side bar and making it a widget hub. 
 
+## GitHub Page
+To view the project in action:
+https://danielzhangshibo.github.io/FrontEnd_Currency_Convert_Widget/
+
 ## Development Info
 All code are written in Javascript, HTML5 and CSS3.
 
